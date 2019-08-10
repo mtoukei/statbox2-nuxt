@@ -31,7 +31,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/element-ui', '@/plugins/d3'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -59,6 +59,9 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    // extend(config, ctx) {}
+    extend(config, { isDev, isClient }) {
+      config.devtool = 'eval-source-map'
+    }
   }
 }

@@ -37,6 +37,7 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
+      console.log(d3)
       // window.onresize = () => this.mix_detectResize()
       // divにリサイズ機能を付与---------------------------------------------------------------
       resizableDiv('#left-side-div')
