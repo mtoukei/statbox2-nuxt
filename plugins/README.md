@@ -5,3 +5,9 @@
 This directory contains Javascript plugins that you want to run before mounting the root Vue.js application.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/plugins).
+
+プラグインに設置だけでは動かない。  
+nuxt.config.jsのpluginsに設定を書く必要あり。  
+
+グローバル変数が必要なときはglobal.d3 = d3のように書く。  
+同時にeslintrc.jsにもグローバルの設定を書く。

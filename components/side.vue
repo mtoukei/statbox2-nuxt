@@ -12,12 +12,8 @@
   </div>
 </template>
 <script>
-import resize from 'vue-resize-directive'
 export default {
   name: 'SideTree',
-  directives: {
-    resize
-  },
   props: {
     side: { type: String, default: '' },
     statType: { type: String, default: '' }
