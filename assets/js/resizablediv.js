@@ -54,10 +54,8 @@ export default function(div) {
     const resize = (e) => {
       // リサイズここから---------------------------------------------------------------------------
       const bodyWidth = document.body.clientWidth
-      const leftSideDivWidth = document.querySelector('#left-side-div')
-        .clientWidth
-      const rightSideDivWidth = document.querySelector('#right-side-div')
-        .clientWidth
+      const leftSideDivWidth = document.querySelector('#left-side-div').clientWidth
+      const rightSideDivWidth = document.querySelector('#right-side-div').clientWidth
       if (currentResizer.classList.contains('top')) {
         const height = originalHeight - (e.pageY - originalMouseY)
         if (height > minimumSize) {
@@ -137,8 +135,7 @@ export default function(div) {
       // const contents = document.querySelector('#contents')
       // 高さ設定。画面ボトムのリサイズ---------------------------------------------------------
       treeDivs.forEach((value) => {
-        if (value.style)
-          value.style.height = bodyHeight - footerHeight - 120 + 'px'
+        if (value.style) value.style.height = bodyHeight - footerHeight - 120 + 'px'
       })
       // if (!ie) {
       //   treeDivs.forEach((value) => {
@@ -150,15 +147,11 @@ export default function(div) {
       //   treeDivs[0].style.height = bodyHeight - footerHeight - 120 + 'px'
       //   treeDivs[1].style.height = bodyHeight - footerHeight - 120 + 'px'
       // }
-      resizersLeft.style.height =
-        bodyHeight - footerHeight - headerHeight + 'px'
-      resizersRight.style.height =
-        bodyHeight - footerHeight - headerHeight + 'px'
+      resizersLeft.style.height = bodyHeight - footerHeight - headerHeight + 'px'
+      resizersRight.style.height = bodyHeight - footerHeight - headerHeight + 'px'
       // contents.style.height = bodyHeight - footerHeight - headerHeight + 'px'
-      document.querySelector('#footer-inner-left').style.height =
-        footerHeight - 40 + 'px'
-      document.querySelector('#footer-inner-right').style.height =
-        footerHeight - 40 + 'px'
+      document.querySelector('#footer-inner-left').style.height = footerHeight - 40 + 'px'
+      document.querySelector('#footer-inner-right').style.height = footerHeight - 40 + 'px'
       // 幅設定。左右サイドのリサイズ---------------------------------------------------------
       // vTreeLefts[0].style.width = leftSideDivWidth - 30 + 'px'
       // vTreeRights[0].style.width = rightSideDivWidth - 30 + 'px'

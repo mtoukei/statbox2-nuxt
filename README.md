@@ -1,22 +1,24 @@
-# my-nuxt-app
+# 設定
+## .eslintrc.js
+- globalsにd3を追加
+## prettierrc
+- printWidthを２００で設定。細かく改行されるのを防ぐ
+## nuxt.config.js
+- ビルドしたときにリンク切れさせないために
 
-> My shining Nuxt.js project
+     
+    router: {
+      base: process.env.BASE_DIR
+    },
+- 元のソースを表示  
 
-## Build Setup
+    
+    extend(config, { isDev, isClient }) {
+       config.devtool = 'eval-source-map'
+    }    
+    
+## package.json
+- ビルドを修正　ビルドしたときにリンク切れさせないために  
 
-``` bash
-# install dependencies
-$ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+    
+    "build": "cross-env BASE_DIR=/statbox2-nuxt/ nuxt build",

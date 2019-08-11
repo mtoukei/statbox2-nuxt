@@ -2,11 +2,11 @@
   <div>
     <header-menu />
     <!--左サイド-->
-    <side side="leftSide" :stat-type="s_statType" />
+    <side p-side="leftSide" :p-stat-type="s_statType" />
     <!--右サイド-->
-    <side v-show="s_rightSideShow" side="rightSide" :stat-type="s_statType" />
+    <side v-show="s_rightSideShow" p-side="rightSide" :p-stat-type="s_statType" />
     <!--フッター-->
-    <footer-info :stat-type="s_statType" />
+    <footer-info :p-stat-type="s_statType" />
   </div>
 </template>
 <script>
@@ -31,8 +31,7 @@ export default {
       return this.$store.state.rightSideShow
     },
     s_statType() {
-      return 'aaaaa'
-      // return this.$store.state.base.statType
+      return this.$store.state.statType
     }
   },
   mounted() {
@@ -49,10 +48,6 @@ export default {
     })
   }
 }
-
-// const resizableDiv = function(div) {
-//   console.log(3333333)
-// }
 </script>
 <style lang="scss">
 @import '../assets/css/main';

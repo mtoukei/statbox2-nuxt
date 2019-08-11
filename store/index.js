@@ -1,5 +1,6 @@
 export const state = () => ({
-  rightSideShow: false
+  rightSideShow: false,
+  statType: 'pref'
 })
 
 export const mutations = {

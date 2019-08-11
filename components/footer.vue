@@ -22,10 +22,7 @@ export default {
   },
   data() {
     return {
-      footerInner: [
-        { id: 'footer-inner-left', side: 'leftSide' },
-        { id: 'footer-inner-right', side: 'rightSide' }
-      ]
+      footerInner: [{ id: 'footer-inner-left', side: 'leftSide' }, { id: 'footer-inner-right', side: 'rightSide' }]
     }
   },
   methods: {}

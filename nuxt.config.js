@@ -31,11 +31,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/d3',
-    '@/plugins/vue-resize-directive'
-  ],
+  plugins: ['@/plugins/element-ui', '@/plugins/d3', '@/plugins/vue-resize-directive'],
   /*
    ** Nuxt.js dev-modules
    */

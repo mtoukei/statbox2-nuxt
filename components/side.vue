@@ -7,6 +7,33 @@
         </div>
       </div>
       <!-- ツリーここから-->
+      <!--全国都道府県と全国散布図-->
+      <div v-for="item in prefDiv" :key="item.id">
+        <div v-show="pStatType === item.statType">
+          <div class="top-div top-div-h">
+            <el-button type="info" size="mini" style="margin-bottom: 10px;" @click="clearPref">
+              クリア
+            </el-button>
+            <el-input v-model="c_filterText" placeholder="キーワード検索" />
+          </div>
+          <div class="tree-div">
+            <el-tree
+              :ref="item.ref"
+              :data="s_eStatMetaPref"
+              node-key="statId"
+              :check-on-click-node="true"
+              :check-strictly="true"
+              :filter-node-method="filterNode"
+              highlight-current
+              :indent="10"
+              @node-expand="nodeClickEstat1"
+              @check="nodeClickEstat1"
+            />
+            <div class="side-sourse">出典:<a href="https://www.stat.go.jp/data/ssds/index.html" target="_blank">社会・人口統計体系</a></div>
+          </div>
+        </div>
+      </div>
+
       <!-- ツリーここまで-->
     </div>
   </div>
@@ -15,34 +42,32 @@
 export default {
   name: 'SideTree',
   props: {
-    side: { type: String, default: '' },
-    statType: { type: String, default: '' }
+    pSide: { type: String, default: '' },
+    pStatType: { type: String, default: '' }
   },
   data() {
-    return {}
+    return {
+      prefDiv: [{ id: '00', statType: 'pref', ref: 'treePref' }, { id: '01', statType: 'scatterPref', ref: 'tresscatterPref' }],
+      cityDiv: [{ id: '11', statType: 'city', ref: 'treeCity' }, { id: '12', statType: 'scatterCity', ref: 'tresscatterCity' }],
+      timeDiv: [{ id: '21', statType: 'timePref', ref: 'treeTimePref' }, { id: '22', statType: 'timeCity', ref: 'treeTimeCity' }],
+      divId: 'left-side-div',
+      divClass: 'resizer right'
+    }
   },
   computed: {
     c_divId() {
-      if (this.side === 'leftSide') {
-        return 'left-side-div'
-      }
-      return 'right-side-div'
+      return this.pSide === 'leftSide' ? 'left-side-div' : 'right-side-div'
     },
     c_divClass() {
-      if (this.side === 'leftSide') {
-        return 'resizer right'
-      }
-      return 'resizer left'
+      return this.pSide === 'leftSide' ? 'resizer right' : 'resizer left'
     },
     c_iClass() {
-      if (this.side === 'leftSide') {
-        return 'el-icon-arrow-right'
-      }
-      return 'el-icon-arrow-left'
+      return this.pSide === 'leftSide' ? 'el-icon-arrow-right' : 'el-icon-arrow-left'
     }
   },
   watch: {},
   mounted() {
+    console.log(this.pStatType)
     this.$nextTick(function() {})
   },
   methods: {
