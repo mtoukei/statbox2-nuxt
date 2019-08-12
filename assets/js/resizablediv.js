@@ -120,22 +120,17 @@ export default function(div) {
       // リサイズここまで--------------------------------------------------------------------------
       // ここから連動して他のDIVをリサイズする---------------------------------------------------
       const bodyHeight = document.body.clientHeight
-      // const bodyWidth = document.body.clientWidth
       const headerHeight = document.querySelector('#header-menu').clientHeight
       const footerHeight = document.querySelector('#footer').clientHeight
       const resizersLeft = document.querySelector('.resizers .resizer.left')
       const resizersRight = document.querySelector('.resizers .resizer.right')
       const treeDivs = document.querySelectorAll('.tree-div')
-      // const vTreeLefts = document.querySelectorAll(
-      //   '#left-side-div' + ' .v-tree'
-      // )
-      // const vTreeRights = document.querySelectorAll(
-      //   '#right-side-div' + ' .v-tree'
-      // )
+      const vTreeLefts = document.querySelectorAll('#left-side-div' + ' .v-tree')
+      const vTreeRights = document.querySelectorAll('#right-side-div' + ' .v-tree')
       // const contents = document.querySelector('#contents')
-      // 高さ設定。画面ボトムのリサイズ---------------------------------------------------------
+      // 左右サイドのツリーの高さ設定---------------------------------------------------------
       treeDivs.forEach((value) => {
-        if (value.style) value.style.height = bodyHeight - footerHeight - 120 + 'px'
+        if (value.style) value.style.height = bodyHeight - footerHeight - 150 + 'px'
       })
       // if (!ie) {
       //   treeDivs.forEach((value) => {
@@ -150,11 +145,12 @@ export default function(div) {
       resizersLeft.style.height = bodyHeight - footerHeight - headerHeight + 'px'
       resizersRight.style.height = bodyHeight - footerHeight - headerHeight + 'px'
       // contents.style.height = bodyHeight - footerHeight - headerHeight + 'px'
+      // フッターの高さ設定
       document.querySelector('#footer-inner-left').style.height = footerHeight - 40 + 'px'
       document.querySelector('#footer-inner-right').style.height = footerHeight - 40 + 'px'
       // 幅設定。左右サイドのリサイズ---------------------------------------------------------
-      // vTreeLefts[0].style.width = leftSideDivWidth - 30 + 'px'
-      // vTreeRights[0].style.width = rightSideDivWidth - 30 + 'px'
+      vTreeLefts[0].style.width = leftSideDivWidth - 30 + 'px'
+      vTreeRights[0].style.width = rightSideDivWidth - 30 + 'px'
       // contents.style.left = leftSideDivWidth + 'px'
       // if (this.rightSideDivShow) {
       //   contents.style.width =

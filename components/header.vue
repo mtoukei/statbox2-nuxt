@@ -9,7 +9,15 @@
 <!--市町村を時系列で..........timeCity-->
 <template>
   <div>
-    <el-menu id="header-menu" default-active="miyazakiCity" mode="horizontal" background-color="#545c64" text-color="#fff" active-text-color="#03a9f4" @select="headerMenuSelect">
+    <el-menu
+      id="header-menu"
+      default-active="miyazakiCity"
+      mode="horizontal"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#03a9f4"
+      @select="headerMenuSelect"
+    >
       <el-menu-item index="home">
         新統計BOX（試作版）
       </el-menu-item>

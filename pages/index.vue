@@ -14,6 +14,7 @@ import resizableDiv from 'assets/js/resizablediv'
 import header from '../components/header'
 import footer from '../components/footer'
 import side from '../components/side'
+import metaPref from '../assets/json/meta-pref'
 export default {
   name: 'App',
   components: {
@@ -37,6 +38,7 @@ export default {
   mounted() {
     this.$nextTick(function() {
       console.log(d3)
+      console.log(metaPref)
       // window.onresize = () => this.mix_detectResize()
       // divにリサイズ機能を付与---------------------------------------------------------------
       resizableDiv('#left-side-div')
@@ -52,4 +54,5 @@ export default {
 <style lang="scss">
 @import '../assets/css/main';
 @import '../assets/css/resizers';
+@import '../assets/css/tree';
 </style>

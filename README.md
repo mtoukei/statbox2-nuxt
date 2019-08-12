@@ -2,7 +2,7 @@
 ## .eslintrc.js
 - globalsにd3を追加
 ## prettierrc
-- printWidthを２００で設定。細かく改行されるのを防ぐ
+- printWidthを150で設定。細かく改行されるのを防ぐ。標準は80
 ## nuxt.config.js
 - ビルドしたときにリンク切れさせないために
 

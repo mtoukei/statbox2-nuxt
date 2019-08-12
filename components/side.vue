@@ -8,28 +8,27 @@
       </div>
       <!-- ツリーここから-->
       <!--全国都道府県と全国散布図-->
-      <div v-for="item in prefDiv" :key="item.id">
-        <div v-show="pStatType === item.statType">
-          <div class="top-div top-div-h">
-            <el-button type="info" size="mini" style="margin-bottom: 10px;" @click="clearPref">
-              クリア
-            </el-button>
-            <el-input v-model="c_filterText" placeholder="キーワード検索" />
-          </div>
-          <div class="tree-div">
-            <el-tree
-              :ref="item.ref"
-              :data="s_eStatMetaPref"
-              node-key="statId"
-              :check-on-click-node="true"
-              :check-strictly="true"
-              :filter-node-method="filterNode"
-              highlight-current
-              :indent="10"
-              @node-expand="nodeClickEstat1"
-              @check="nodeClickEstat1"
-            />
-            <div class="side-sourse">出典:<a href="https://www.stat.go.jp/data/ssds/index.html" target="_blank">社会・人口統計体系</a></div>
+      <div class="v-tree">
+        <div v-for="item in prefDiv" :key="item.id">
+          <div v-show="pStatType === item.statType">
+            <div class="top-div top-div-h">
+              <el-button type="info" size="mini" style="margin-bottom: 10px;" @click="clearPref">
+                クリア
+              </el-button>
+              <el-input v-model="c_filterText" placeholder="キーワード検索" />
+            </div>
+            <div class="tree-div">
+              <el-tree
+                :ref="item.ref"
+                node-key="statId"
+                :check-on-click-node="true"
+                :check-strictly="true"
+                :data="s_eStatMetaPref"
+                :filter-node-method="filterNode"
+                highlight-current
+                :indent="10"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -48,10 +47,9 @@ export default {
   data() {
     return {
       prefDiv: [{ id: '00', statType: 'pref', ref: 'treePref' }, { id: '01', statType: 'scatterPref', ref: 'tresscatterPref' }],
-      cityDiv: [{ id: '11', statType: 'city', ref: 'treeCity' }, { id: '12', statType: 'scatterCity', ref: 'tresscatterCity' }],
-      timeDiv: [{ id: '21', statType: 'timePref', ref: 'treeTimePref' }, { id: '22', statType: 'timeCity', ref: 'treeTimeCity' }],
-      divId: 'left-side-div',
-      divClass: 'resizer right'
+      filterTextPref: '',
+      filterTextPrefScatter: '',
+      filterTextPrefTime: ''
     }
   },
   computed: {
@@ -63,14 +61,57 @@ export default {
     },
     c_iClass() {
       return this.pSide === 'leftSide' ? 'el-icon-arrow-right' : 'el-icon-arrow-left'
+    },
+    c_filterText: {
+      get() {
+        switch (this.pStatType) {
+          case 'pref':
+            return this.filterTextPref
+          case 'scatterPref':
+            return this.filterTextPrefScatter
+          case 'timePref':
+            return this.filterTextPrefTime
+          default:
+            return 'error'
+        }
+      },
+      set(value) {
+        console.log(this.pStatType, value)
+        switch (this.pStatType) {
+          case 'pref':
+            this.filterTextPref = value
+            console.log(this.filterTextPref)
+            break
+          case 'scatterPref':
+            this.filterTextPrefScatter = value
+            break
+          case 'timePref':
+            this.filterTextPrefTime = value
+            break
+        }
+      }
+    },
+    // ここからストア
+    s_eStatMetaPref() {
+      return this.$store.state.estatMetaPref.metaPref
     }
   },
-  watch: {},
+  watch: {
+    filterTextPref(val) {
+      this.$refs.treePref[0].filter(val)
+    }
+  },
   mounted() {
-    console.log(this.pStatType)
     this.$nextTick(function() {})
   },
   methods: {
+    clearPref() {
+      alert('未作成')
+    },
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.includes(value)
+    },
     handleResize() {
       console.log('resized')
     }
