@@ -10,11 +10,11 @@
   </div>
 </template>
 <script>
-import resizableDiv from 'assets/js/resizablediv'
-import header from '../components/header'
-import footer from '../components/footer'
-import side from '../components/side'
-import metaPref from '../assets/json/meta-pref'
+import resizableDiv from '@/assets/js/resizablediv'
+import footer from '@/components/footer'
+import side from '@/components/side'
+import metaPref from '@/assets/json/meta-pref'
+import header from '@/components/header'
 export default {
   name: 'App',
   components: {
