@@ -32,7 +32,6 @@
           </div>
         </div>
       </div>
-
       <!-- ツリーここまで-->
     </div>
   </div>
@@ -76,11 +75,9 @@ export default {
         }
       },
       set(value) {
-        console.log(this.pStatType, value)
         switch (this.pStatType) {
           case 'pref':
             this.filterTextPref = value
-            console.log(this.filterTextPref)
             break
           case 'scatterPref':
             this.filterTextPrefScatter = value

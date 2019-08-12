@@ -1,6 +1,6 @@
 module.exports = {
-  mode: 'spa',
-  // mode: 'universal',
+  // mode: 'spa',
+  mode: 'universal',
   router: {
     base: process.env.BASE_DIR
   },
@@ -31,7 +31,12 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui', '@/plugins/d3', '@/plugins/vue-resize-directive'],
+  plugins: [
+    '@/plugins/element-ui',
+    // '@/plugins/d3',
+    { src: '@/plugins/d3', mode: 'client' },
+    { src: '@/plugins/vue-resize-directive', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
