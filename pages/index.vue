@@ -4,7 +4,7 @@
     <!--左サイド-->
     <side p-side="leftSide" :p-stat-type="s_statType" />
     <!--右サイド-->
-    <side v-show="s_rightSideShow" p-side="rightSide" :p-stat-type="s_statType" />
+    <side v-show="s_isRightSideShow" p-side="rightSide" :p-stat-type="s_statType" />
     <!--フッター-->
     <footer-info :p-stat-type="s_statType" />
   </div>
@@ -28,8 +28,8 @@ export default {
   ],
   computed: {
     // storeを見ている算出プロパティには頭にs_をつけている。
-    s_rightSideShow() {
-      return this.$store.state.rightSideShow
+    s_isRightSideShow() {
+      return this.$store.state.isRightSideShow
     },
     s_statType() {
       return this.$store.state.statType
@@ -37,6 +37,7 @@ export default {
   },
   mounted() {
     this.$nextTick(function() {
+      console.log(process.env.NODE_ENV + 'で起動')
       console.log(d3)
       console.log(metaPref)
       // window.onresize = () => this.mix_detectResize()

@@ -1,5 +1,5 @@
 export const state = () => ({
-  rightSideShow: false,
+  isRightSideShow: false,
   statType: 'pref'
 })
 
