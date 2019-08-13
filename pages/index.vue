@@ -29,10 +29,10 @@ export default {
   computed: {
     // storeを見ている算出プロパティには頭にs_をつけている。
     s_isRightSideShow() {
-      return this.$store.state.isRightSideShow
+      return this.$store.state.common.isRightSideShow
     },
     s_statType() {
-      return this.$store.state.statType
+      return this.$store.state.common.statType
     }
   },
   mounted() {

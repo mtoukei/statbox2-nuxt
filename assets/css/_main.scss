@@ -8,25 +8,6 @@ $large2-chart-div-height: 600px;
 $large2-chart-div-width: 1200px;
 $large3-chart-div-height: 500px;
 $large3-chart-div-width: 980px;
-html {
-  height: 100%;
-}
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-div {
-  box-sizing: border-box;
-}
-#app {
-  height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background-color: black;
-}
 // ヘッダー--------------------------------------------------------------------------------------
 #header-menu {
   height: $header-menu-height;

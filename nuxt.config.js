@@ -9,7 +9,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '新統計BOX試作版',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -61,8 +61,6 @@ module.exports = {
       if (ctx.isDev && ctx.isClient) {
         config.devtool = 'eval-source-map'
       }
-
-      // config.devtool = process.env.NODE_ENV === 'production' ? '' : 'eval-source-map'
     }
   }
 }

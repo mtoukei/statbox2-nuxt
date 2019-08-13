@@ -8,17 +8,14 @@
 
      
     router: {
-      base: process.env.BASE_DIR
+      base: process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/' : '/'
     },
 - 元のソースを表示  
 
     
-    extend(config, { isDev, isClient }) {
-       config.devtool = 'eval-source-map'
-    }    
+      if (ctx.isDev && ctx.isClient) {
+        config.devtool = 'eval-source-map'
+      }
     
 ## package.json
-- ビルドを修正　ビルドしたときにリンク切れさせないために  
 
-    
-    "build": "cross-env BASE_DIR=/statbox2-nuxt/ nuxt build",
