@@ -26,6 +26,16 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  // validate({ params }) {
+  //   console.log(333333333333333333)
+  //   if (!params.nuxtdemo) {
+  //     return false
+  //   }
+  //   return true
+  // },
+  mounted() {
+    console.log(this.$nuxt.$route.params)
   }
 }
 </script>
