@@ -41,8 +41,8 @@
         <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>
         <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>
       </el-submenu>
-      <el-menu-item index="page1">pege1</el-menu-item>
-      <el-menu-item index="page2">pege2</el-menu-item>
+      <el-menu-item index="page1"><nuxt-link to="/page1">pege1</nuxt-link></el-menu-item>
+      <el-menu-item index="page2"><nuxt-link to="/page2">pege2</nuxt-link></el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -54,10 +54,11 @@ export default {
   methods: {
     headerMenuSelect(key) {
       console.log(key)
+      console.log(this.$nuxt.$router)
       switch (key) {
         case 'page1':
         case 'page2':
-          this.$nuxt.$router.push(key)
+          this.$nuxt.$router.push('/' + key)
       }
     }
   }
