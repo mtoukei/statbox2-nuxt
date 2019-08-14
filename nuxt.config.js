@@ -3,7 +3,7 @@ module.exports = {
   // mode: 'spa',
   mode: 'universal',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/dist/' : '/'
   },
   /*
    ** Headers of the page
