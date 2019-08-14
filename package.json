@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production nuxt build",
     "start": "cross-env NODE_ENV=development node server/index.js",
     "generate": "cross-env NODE_ENV=production nuxt generate",
-    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore . --ignore-path .eslintignore .",
     "test": "jest"
   },
   "dependencies": {
