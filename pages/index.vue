@@ -3,6 +3,8 @@
     <header-menu />
     <!--左サイド-->
     <side p-side="leftSide" :p-stat-type="s_statType" />
+    <!--グラフ等の表示部分-->
+    <contents />
     <!--右サイド-->
     <side v-show="s_isRightSideShow" p-side="rightSide" :p-stat-type="s_statType" />
     <!--フッター-->
@@ -10,22 +12,19 @@
   </div>
 </template>
 <script>
-import resizableDiv from '@/assets/js/resizablediv'
+import * as resizableDiv from '@/assets/js/resizablediv'
 import footer from '@/components/footer'
 import side from '@/components/side'
-import metaPref from '@/assets/json/meta-pref'
+import contents from '@/components/contents'
 import header from '@/components/header'
 export default {
   name: 'App',
   components: {
+    contents,
     'header-menu': header,
     'footer-info': footer,
     side
   },
-  mixins: [
-    // mixinMetadataCreate, // 復活させるとログにメタ情報を作る。
-    // mixinWatch // ウオッチを集中させている。
-  ],
   computed: {
     // storeを見ている算出プロパティには頭にs_をつけている。
     s_isRightSideShow() {
@@ -36,15 +35,16 @@ export default {
     }
   },
   mounted() {
+    // resizableDiv.divResize(this)
     this.$nextTick(function() {
       console.log(process.env.NODE_ENV + 'で起動')
-      console.log(d3)
-      console.log(metaPref)
-      // window.onresize = () => this.mix_detectResize()
+      console.log('d3起動確認', d3)
+
+      window.onresize = () => resizableDiv.divResize(this)
       // divにリサイズ機能を付与---------------------------------------------------------------
-      resizableDiv('#left-side-div')
-      resizableDiv('#right-side-div')
-      resizableDiv('#footer')
+      resizableDiv.grantResize('#left-side-div', this)
+      resizableDiv.grantResize('#right-side-div', this)
+      resizableDiv.grantResize('#footer', this)
       // this.s_leftDivList.forEach((value) => {
       //   resizableDiv('#left-' + value.divId)
       // })

@@ -58,6 +58,8 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
+      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+      config.plugins.push(new HardSourceWebpackPlugin())
       if (ctx.isDev && ctx.isClient) {
         config.devtool = 'eval-source-map'
       }

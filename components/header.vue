@@ -41,16 +41,27 @@
         <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>
         <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>
       </el-submenu>
+      <el-menu-item index="page1"><nuxt-link to="./page1">pege1</nuxt-link></el-menu-item>
+      <el-menu-item index="page2"><nuxt-link to="./page2">pege2</nuxt-link></el-menu-item>
     </el-menu>
   </div>
 </template>
 <script>
 export default {
   name: 'HeaderMenu',
-  // mixins: [mixinDetectResize],
   computed: {},
+  mounted() {
+    console.log(this.$nuxt.$route)
+  },
   methods: {
-    headerMenuSelect(key) {}
+    headerMenuSelect(key) {
+      console.log(key)
+      switch (key) {
+        case 'page1':
+        case 'page2':
+          this.$nuxt.$router.push(key)
+      }
+    }
   }
 }
 </script>

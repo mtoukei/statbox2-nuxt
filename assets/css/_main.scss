@@ -1,5 +1,6 @@
 $footer-height: 30px;
 $header-menu-height: 61px;
+$side-menu-width: 200px;
 $chart-div-handle-height: 20px;
 $normal-chart-div-size: 300px;
 $large1-chart-div-height: 300px;
@@ -84,7 +85,7 @@ $large3-chart-div-width: 980px;
 #left-side-div, #right-side-div{
   position: absolute;
   top: $header-menu-height;
-  width: 200px;
+  width: $side-menu-width;
   height: calc(100vh - #{$header-menu-height} - #{$footer-height});
   background-color: #dadada;
 }
@@ -96,6 +97,7 @@ $large3-chart-div-width: 980px;
 #contents {
   position: absolute;
   top: $header-menu-height;
+  width: calc(100% - #{$side-menu-width});
   left: 200px;
   height: calc(100vh - #{$header-menu-height} - #{$footer-height});
   background-color: whitesmoke;
