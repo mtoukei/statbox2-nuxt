@@ -7,51 +7,27 @@
         </div>
       </div>
       <!-- ツリーここから-->
-
-      <!--全国都道府県と全国散布図-->
-      <div class="v-tree">
-        <div v-for="item in prefDiv" :key="item.id">
-          <div v-show="pStatType === item.statType">
-            <div class="top-div top-div-h">
-              <el-button type="info" size="mini" style="margin-bottom: 10px;" @click="clearPref">
-                クリア
-              </el-button>
-              <el-input v-model="c_filterText" placeholder="キーワード検索" />
-            </div>
-            <div class="tree-div">
-              <el-tree
-                :ref="item.ref"
-                node-key="statId"
-                :check-on-click-node="true"
-                :check-strictly="true"
-                :data="s_eStatMetaPref"
-                :filter-node-method="filterNode"
-                highlight-current
-                :indent="10"
-              />
-            </div>
-          </div>
-        </div>
+      <div class="side-tree">
+        <!--全国都道府県-->
+        <tree-pref v-show="s_statType === 'pref'" />
+        <!--全国散布図-->
+        <tree-scatter-pref v-show="s_statType === 'scatterPref'" />
       </div>
-
       <!-- ツリーここまで-->
     </div>
   </div>
 </template>
 <script>
+import treePref from '@/components/side/tree-pref'
+import treeScatterPref from '@/components/side/tree-scatter-pref'
 export default {
   name: 'SideTree',
-  props: {
-    pSide: { type: String, default: '' },
-    pStatType: { type: String, default: '' }
+  components: {
+    'tree-pref': treePref,
+    'tree-scatter-pref': treeScatterPref
   },
-  data() {
-    return {
-      prefDiv: [{ id: '00', statType: 'pref', ref: 'treePref' }, { id: '01', statType: 'scatterPref', ref: 'tresscatterPref' }],
-      filterTextPref: '',
-      filterTextPrefScatter: '',
-      filterTextPrefTime: ''
-    }
+  props: {
+    pSide: { type: String, default: '' }
   },
   computed: {
     c_divId() {
@@ -63,54 +39,12 @@ export default {
     c_iClass() {
       return this.pSide === 'leftSide' ? 'el-icon-arrow-right' : 'el-icon-arrow-left'
     },
-    c_filterText: {
-      get() {
-        switch (this.pStatType) {
-          case 'pref':
-            return this.filterTextPref
-          case 'scatterPref':
-            return this.filterTextPrefScatter
-          case 'timePref':
-            return this.filterTextPrefTime
-          default:
-            return 'error'
-        }
-      },
-      set(value) {
-        switch (this.pStatType) {
-          case 'pref':
-            this.filterTextPref = value
-            break
-          case 'scatterPref':
-            this.filterTextPrefScatter = value
-            break
-          case 'timePref':
-            this.filterTextPrefTime = value
-            break
-        }
-      }
-    },
-    // ここからストア
-    s_eStatMetaPref() {
-      return this.$store.state.estatMetaPref.metaPref
+    s_statType() {
+      console.log(this.$store.state.common.statType)
+      return this.$store.state.common.statType
     }
-  },
-  watch: {
-    filterTextPref(val) {
-      this.$refs.treePref[0].filter(val)
-    }
-  },
-  mounted() {
-    this.$nextTick(function() {})
   },
   methods: {
-    clearPref() {
-      alert('未作成')
-    },
-    filterNode(value, data) {
-      if (!value) return true
-      return data.label.includes(value)
-    },
     handleResize() {
       console.log('resized')
     }

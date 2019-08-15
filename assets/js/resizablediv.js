@@ -125,8 +125,8 @@ export const grantResize = (div, vm) => {
       const resizersLeft = document.querySelector('.resizers .resizer.left')
       const resizersRight = document.querySelector('.resizers .resizer.right')
       const treeDivs = document.querySelectorAll('.tree-div')
-      const vTreeLefts = document.querySelectorAll('#left-side-div' + ' .v-tree')
-      const vTreeRights = document.querySelectorAll('#right-side-div' + ' .v-tree')
+      const vTreeLefts = document.querySelectorAll('#left-side-div' + ' .side-tree')
+      const vTreeRights = document.querySelectorAll('#right-side-div' + ' .side-tree')
       const contents = document.querySelector('#contents')
       // 左右サイドのツリーの高さ設定---------------------------------------------------------
       treeDivs.forEach((value) => {
@@ -209,8 +209,8 @@ export const divResize = (vm) => {
   const treeDivs = document.querySelectorAll('.tree-div')
   const leftSideDivWidth = document.querySelector('#left-side-div').clientWidth
   const rightSideDivWidth = document.querySelector('#right-side-div').clientWidth
-  const vTreeLefts = document.querySelectorAll('#left-side-div' + ' .v-tree')
-  const vTreeRights = document.querySelectorAll('#right-side-div' + ' .v-tree')
+  const vTreeLefts = document.querySelectorAll('#left-side-div' + ' .side-tree')
+  const vTreeRights = document.querySelectorAll('#right-side-div' + ' .side-tree')
   const contents = document.querySelector('#contents')
   // 左右サイドのツリーの高さ設定---------------------------------------------------------
   treeDivs.forEach((value) => {

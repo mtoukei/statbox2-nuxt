@@ -54,6 +54,9 @@ export default {
         case 'index-page1':
         case 'index-page2':
           this.$nuxt.$router.push({ name: key })
+          break
+        default:
+          this.$store.commit('common/changeStatType', key)
       }
     }
   }

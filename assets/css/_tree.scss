@@ -1,5 +1,5 @@
 /*ツリーCSS--------------------------------------------------------------------------------*/
-.v-tree {
+.side-tree {
   width:170px;
   margin-left: 5px;
   user-select: none;
@@ -23,12 +23,12 @@
 .top-div {
   box-sizing: border-box;
   padding-top: 10px;
-  height: 50px;
+  height: 90px;
   font-size: 10px;
 }
-.top-div-h {
-  height: 90px;
-}
+//.top-div-h {
+//  height: 90px;
+//}
 .top-div-h2 {
   height: 120px;
 }

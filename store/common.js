@@ -4,10 +4,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  login(state, user) {
-    state.user = user
-  },
-  logout(state) {
-    state.user = null
+  changeStatType(state, statType) {
+    state.statType = statType
   }
 }
