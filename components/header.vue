@@ -1,12 +1,9 @@
-<!--宮崎県市町村 いろんなグラフで..............miyazakiCity-->
-<!--散布図で.....................scatterMiyazaki -->
 <!--全国都道府県いろんなグラフで..............pref-->
-<!--散布図で.....................scatterPref-->
-<!--全国市町村 いろんなグラフで..............city-->
-<!--散布図で.....................scatterCity-->
-<!--時系列 宮崎県を時系列で..........time-->
-<!--都道府県を時系列で.......timePref-->
-<!--市町村を時系列で..........timeCity-->
+<!--散布図で.............................scatterPref-->
+<!--全国市町村 いろんなグラフで.................city-->
+<!--散布図で.............................scatterCity-->
+<!--都道府県を時系列で...................timePref-->
+<!--市町村を時系列で......................timeCity-->
 <template>
   <div>
     <el-menu
@@ -33,16 +30,15 @@
         <el-menu-item index="city">いろんなグラフで見える化</el-menu-item>
         <el-menu-item index="scatterCity">散布図で見える化</el-menu-item>
       </el-submenu>
-      <el-submenu index="5">
-        <template slot="title">
-          時系列
-        </template>
-        <el-menu-item index="time">宮崎県を時系列で見える化</el-menu-item>
-        <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>
-        <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="page1"><nuxt-link to="/page1">pege1</nuxt-link></el-menu-item>
-      <el-menu-item index="page2"><nuxt-link to="/page2">pege2</nuxt-link></el-menu-item>
+      <!--      <el-submenu index="5">-->
+      <!--        <template slot="title">-->
+      <!--          時系列-->
+      <!--        </template>-->
+      <!--        <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>-->
+      <!--        <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>-->
+      <!--      </el-submenu>-->
+      <el-menu-item index="page1"><nuxt-link :to="{ name: 'index-page1' }">pege1</nuxt-link></el-menu-item>
+      <el-menu-item index="page2"><nuxt-link :to="{ name: 'index-page2' }">pege2</nuxt-link></el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -55,12 +51,17 @@ export default {
     headerMenuSelect(key) {
       console.log(key)
       console.log(this.$nuxt.$router)
-      switch (key) {
-        case 'page1':
-        case 'page2':
-          this.$nuxt.$router.push('/' + key)
-      }
+      // switch (key) {
+      //   case 'page1':
+      //   case 'page2':
+      //     this.$nuxt.$router.push('/' + key)
+      // }
     }
   }
 }
 </script>
+<style scoped>
+a {
+  text-decoration: none;
+}
+</style>

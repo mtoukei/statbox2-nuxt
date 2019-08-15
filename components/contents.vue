@@ -1,6 +1,5 @@
 <template>
   <div id="contents">
-    ここに表示する。
     <nuxt-child />
   </div>
 </template>
