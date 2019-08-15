@@ -1,15 +1,16 @@
 console.log(process.env.NODE_ENV)
+const base = process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/dist/' : '/'
 module.exports = {
   // mode: 'spa',
   mode: 'universal',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/dist/' : '/'
+    base
   },
   // Headers of the page--------------------------------------------------------------------
   head: {
     title: '新統計BOX試作版',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/statbox2-nuxt/dist/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: base + 'favicon.ico' }]
   },
   // Customize the progress-bar color-----------------------------------------------------
   loading: { color: '#fff' },

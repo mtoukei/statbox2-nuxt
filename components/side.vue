@@ -7,6 +7,7 @@
         </div>
       </div>
       <!-- ツリーここから-->
+
       <!--全国都道府県と全国散布図-->
       <div class="v-tree">
         <div v-for="item in prefDiv" :key="item.id">
@@ -32,6 +33,7 @@
           </div>
         </div>
       </div>
+
       <!-- ツリーここまで-->
     </div>
   </div>
