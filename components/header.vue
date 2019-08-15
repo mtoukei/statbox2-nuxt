@@ -15,7 +15,7 @@
       active-text-color="#03a9f4"
       @select="headerMenuSelect"
     >
-      <el-menu-item index="home">新統計BOX（試作版）</el-menu-item>
+      <el-menu-item index="index">新統計BOX（試作版）</el-menu-item>
       <el-submenu index="3">
         <template slot="title">
           全国都道府県
@@ -37,8 +37,8 @@
       <!--        <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>-->
       <!--        <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>-->
       <!--      </el-submenu>-->
-      <el-menu-item index="page1"><nuxt-link :to="{ name: 'index-page1' }">pege1</nuxt-link></el-menu-item>
-      <el-menu-item index="page2"><nuxt-link :to="{ name: 'index-page2' }">pege2</nuxt-link></el-menu-item>
+      <el-menu-item index="index-page1"><nuxt-link :to="{ name: 'index-page1' }">pege1</nuxt-link></el-menu-item>
+      <el-menu-item index="index-page2"><nuxt-link :to="{ name: 'index-page2' }">pege2</nuxt-link></el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -49,13 +49,12 @@ export default {
   mounted() {},
   methods: {
     headerMenuSelect(key) {
-      console.log(key)
-      console.log(this.$nuxt.$router)
-      // switch (key) {
-      //   case 'page1':
-      //   case 'page2':
-      //     this.$nuxt.$router.push('/' + key)
-      // }
+      switch (key) {
+        case 'index':
+        case 'index-page1':
+        case 'index-page2':
+          this.$nuxt.$router.push({ name: key })
+      }
     }
   }
 }
