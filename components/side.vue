@@ -10,8 +10,12 @@
       <div class="side-tree">
         <!--全国都道府県-->
         <tree-pref v-show="s_statType === 'pref'" />
-        <!--全国散布図-->
+        <!--全国都道府県散布図-->
         <tree-scatter-pref v-show="s_statType === 'scatterPref'" />
+        <!--全国市町村-->
+        <tree-city v-show="s_statType === 'city'" />
+        <!--全国市町村散布図-->
+        <tree-scatter-city v-show="s_statType === 'scatterCity'" />
       </div>
       <!-- ツリーここまで-->
     </div>
@@ -20,11 +24,15 @@
 <script>
 import treePref from '@/components/side/tree-pref'
 import treeScatterPref from '@/components/side/tree-scatter-pref'
+import treeCity from '@/components/side/tree-city'
+import treeScatterCity from '@/components/side/tree-scatter-city'
 export default {
   name: 'SideTree',
   components: {
     'tree-pref': treePref,
-    'tree-scatter-pref': treeScatterPref
+    'tree-scatter-pref': treeScatterPref,
+    'tree-city': treeCity,
+    'tree-scatter-city': treeScatterCity
   },
   props: {
     pSide: { type: String, default: '' }

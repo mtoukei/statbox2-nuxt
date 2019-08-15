@@ -12,19 +12,19 @@
         node-key="statId"
         :check-on-click-node="true"
         :check-strictly="true"
-        :data="s_estatMetaPref"
+        :data="s_estatMetaCity"
         :filter-node-method="filterNode"
         highlight-current
         :indent="10"
       />
-      <span class="tree-name">全国都道府県いろんなグラフ</span>
+      <span class="tree-name">全国市町村散布図</span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TreePref',
+  name: 'TreeCity',
   data() {
     return {
       filterText: ''
@@ -42,8 +42,8 @@ export default {
     s_statType() {
       return this.$store.state.common.statType
     },
-    s_estatMetaPref() {
-      return this.$store.state.estatMetaPref.metaPrefPref
+    s_estatMetaCity() {
+      return this.$store.state.estatMetaCity.metaCityScatterCity
     }
   },
   watch: {
@@ -56,9 +56,9 @@ export default {
   },
   methods: {
     clear() {
-      this.$store.commit('estatMetaPref/clear', this.s_statType)
+      this.$store.commit('estatMetaCity/clear', this.s_statType)
       this.$nextTick(function() {
-        this.$store.commit('estatMetaPref/set', this.s_statType)
+        this.$store.commit('estatMetaCity/set', this.s_statType)
       })
       this.filterText = ''
     },

@@ -8,7 +8,7 @@
   <div>
     <el-menu
       id="header-menu"
-      default-active="miyazakiCity"
+      default-active="pref"
       mode="horizontal"
       background-color="#545c64"
       text-color="#fff"

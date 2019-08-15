@@ -2,7 +2,7 @@
   <div>
     <div class="top-div">
       <el-button type="info" size="mini" style="margin-bottom: 10px;" @click.stop="clear">
-        クリア1
+        クリア
       </el-button>
       <el-input v-model="c_filterText" placeholder="キーワード検索" />
     </div>
@@ -17,6 +17,7 @@
         highlight-current
         :indent="10"
       />
+      <span class="tree-name">全国都道府県散布図</span>
     </div>
   </div>
 </template>
