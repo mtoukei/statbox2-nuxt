@@ -33,11 +33,9 @@ module.exports = {
   // --------------------------------------------------------------------------------------------
   build: {
     transpile: [/^element-ui/],
+    hardSource: true,
     // You can extend webpack config here
     extend(config, ctx) {
-      // ビルド高速化
-      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-      config.plugins.push(new HardSourceWebpackPlugin())
       // ソースマップ表示
       // config.devtool = 'eval-source-map'
       if (ctx.isDev && ctx.isClient) {
