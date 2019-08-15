@@ -49,6 +49,7 @@ export default {
   mounted() {},
   methods: {
     headerMenuSelect(key) {
+      console.log(this.$nuxt.$router)
       switch (key) {
         case 'index':
         case 'index-page1':

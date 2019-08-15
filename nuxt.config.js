@@ -2,9 +2,9 @@ const base = process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/dist/' : '/
 module.exports = {
   // mode: 'spa',
   mode: 'universal',
-  router: {
-    base
-  },
+  // router: {
+  //   base
+  // },
   // Headers of the page--------------------------------------------------------------------
   head: {
     title: '新統計BOX試作版',
@@ -41,5 +41,21 @@ module.exports = {
         config.devtool = 'eval-source-map'
       }
     }
+  },
+  router: {
+    base
+    // extendRoutes(routes, resolve) {
+    //   const index = routes.findIndex((route) => route.name === 'index')
+    //   routes[index] = {
+    //     ...routes[index],
+    //     components: {
+    //       default: routes[index].component,
+    //       top: resolve(__dirname, 'components/footer.vue')
+    //     },
+    //     chunkNames: {
+    //       top: 'components/footer'
+    //     }
+    //   }
+    // }
   }
 }

@@ -1,6 +1,7 @@
 <template>
   <div id="contents">
-    <nuxt-child />
+    <NuxtChild />
+    <NuxtChild name="top" />
   </div>
 </template>
 
