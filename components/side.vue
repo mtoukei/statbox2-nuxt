@@ -48,7 +48,6 @@ export default {
       return this.pSide === 'leftSide' ? 'el-icon-arrow-right' : 'el-icon-arrow-left'
     },
     s_statType() {
-      console.log(this.$store.state.common.statType)
       return this.$store.state.common.statType
     }
   },

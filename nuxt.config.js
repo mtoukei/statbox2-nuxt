@@ -1,4 +1,3 @@
-console.log(process.env.NODE_ENV)
 const base = process.env.NODE_ENV === 'production' ? '/statbox2-nuxt/dist/' : '/'
 module.exports = {
   // mode: 'spa',
