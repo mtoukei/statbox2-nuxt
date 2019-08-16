@@ -22,7 +22,8 @@ module.exports = {
   // Nuxt.js modules-------------------------------------------------------------------------
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/component-cache'
   ],
   // Axios module configuration See https://axios.nuxtjs.org/options------------------
   axios: {},

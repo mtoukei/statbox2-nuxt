@@ -15,7 +15,7 @@
       active-text-color="#03a9f4"
       @select="headerMenuSelect"
     >
-      <el-menu-item index="index">新統計BOX（試作版）</el-menu-item>
+      <el-menu-item index="vi-stattype-vi">新統計BOX（試作版）</el-menu-item>
       <el-submenu index="3">
         <template slot="title">
           全国都道府県
@@ -37,8 +37,8 @@
       <!--        <el-menu-item index="timePref">全国の都道府県を時系列で見える化</el-menu-item>-->
       <!--        <el-menu-item index="timeCity">全国の市町村を時系列で見える化</el-menu-item>-->
       <!--      </el-submenu>-->
-      <el-menu-item index="index-page1"><nuxt-link :to="{ name: 'index-page1' }">pege1</nuxt-link></el-menu-item>
-      <el-menu-item index="index-page2"><nuxt-link :to="{ name: 'index-page2' }">pege2</nuxt-link></el-menu-item>
+      <el-menu-item index="vi-stattype-vi-page1"><nuxt-link :to="{ name: 'vi-stattype-vi-page1' }">pege11</nuxt-link></el-menu-item>
+      <el-menu-item index="vi-stattype-vi-page2"><nuxt-link :to="{ name: 'vi-stattype-vi-page2' }">pege22</nuxt-link></el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -51,10 +51,9 @@ export default {
     }
   },
   computed: {},
-  mounted() {
-    const url = new URL(window.location.href)
-    const params = url.searchParams
-    let statType = params.get('type')
+  created() {
+    let statType = this.$route.params.stattype
+    console.log(statType)
     if (!statType) statType = 'pref'
     this.defaultActive = statType
     this.$store.commit('common/changeStatType', statType)
@@ -64,18 +63,14 @@ export default {
       console.log(this.$nuxt.$router)
       console.log(this.$route.params.stattype)
       switch (key) {
-        case 'index':
-        case 'index-page1':
-        case 'index-page2':
+        case 'vi-stattype-vi':
+        case 'vi-stattype-vi-page1':
+        case 'vi-stattype-vi-page2':
           this.$nuxt.$router.push({ name: key })
           break
         default:
+          this.$nuxt.$router.push({ name: 'vi-stattype-vi', params: { stattype: key } })
           this.$store.commit('common/changeStatType', key)
-          const url = new URL(window.location.href)
-          const params = url.searchParams
-          params.set('type', key)
-          console.log(url.href)
-          window.history.replaceState({}, '', url.href)
       }
     }
   }

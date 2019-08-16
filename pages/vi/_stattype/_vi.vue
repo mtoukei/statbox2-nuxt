@@ -16,7 +16,7 @@ import * as resizableDiv from '@/assets/js/resizablediv'
 import footer from '@/components/footer'
 import side from '@/components/side'
 import contents from '@/components/contents'
-import header from '@/components/header'
+import header from '@/components/header2'
 export default {
   name: 'App',
   components: {
