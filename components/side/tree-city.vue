@@ -17,7 +17,7 @@
         highlight-current
         :indent="10"
       />
-      <!--      <span class="tree-name">全国市町村いろんなグラフ</span>-->
+      <span class="tree-name">全国市町村いろんなグラフ</span>
     </div>
   </div>
 </template>
