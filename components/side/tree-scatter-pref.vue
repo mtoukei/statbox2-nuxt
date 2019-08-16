@@ -16,6 +16,8 @@
         :filter-node-method="filterNode"
         highlight-current
         :indent="10"
+        @node-expand="nodeClick"
+        @check="nodeClick"
       />
       <span class="tree-name">全国都道府県散布図</span>
     </div>
@@ -39,6 +41,9 @@ export default {
         this.filterText = value
       }
     },
+    s_statType() {
+      return this.$store.state.common.statType
+    },
     s_estatMetaPref() {
       return this.$store.state.estatMetaPref.metaPrefScatterPref
     }
@@ -52,10 +57,16 @@ export default {
     this.$nextTick(function() {})
   },
   methods: {
+    nodeClick(e) {
+      if (!e.children) {
+        const payload = { statType: this.s_statType, id: e.statId }
+        this.$store.commit('common/changeStatId', payload)
+      }
+    },
     clear() {
-      this.$store.commit('estatMetaPref/clear')
+      this.$store.commit('estatMetaCity/clear', this.s_statType)
       this.$nextTick(function() {
-        this.$store.commit('estatMetaPref/set')
+        this.$store.commit('estatMetaCity/set', this.s_statType)
       })
       this.filterText = ''
     },

@@ -16,6 +16,8 @@
         :filter-node-method="filterNode"
         highlight-current
         :indent="10"
+        @node-expand="nodeClick"
+        @check="nodeClick"
       />
       <span class="tree-name">全国市町村散布図</span>
     </div>
@@ -55,6 +57,12 @@ export default {
     this.$nextTick(function() {})
   },
   methods: {
+    nodeClick(e) {
+      if (!e.children) {
+        const payload = { statType: this.s_statType, id: e.statId }
+        this.$store.commit('common/changeStatId', payload)
+      }
+    },
     clear() {
       this.$store.commit('estatMetaCity/clear', this.s_statType)
       this.$nextTick(function() {
