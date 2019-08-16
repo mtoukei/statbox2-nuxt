@@ -42,6 +42,14 @@ module.exports = {
       }
     }
   },
+  generate: {
+    routes: [
+      '/vi/pref',
+      '/vi/scatterPref',
+      '/vi/city',
+      '/vi/scatterCity',
+    ]
+  },
   router: {
     base
     // extendRoutes(routes, resolve) {
