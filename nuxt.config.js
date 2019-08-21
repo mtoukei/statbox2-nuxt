@@ -41,9 +41,9 @@ module.exports = {
     }
   },
   // --------------------------------------------------------------------------------------------
-  generate: {
-    routes: ['/vi/', '/vi/pref', '/vi/scatterPref', '/vi/city', '/vi/scatterCity']
-  },
+  // generate: {
+  //   routes: ['/vi/', '/vi/pref', '/vi/scatterPref', '/vi/city', '/vi/scatterCity']
+  // },
   // --------------------------------------------------------------------------------------------
   router: {
     base

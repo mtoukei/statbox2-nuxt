@@ -9,13 +9,15 @@
     <div class="tree-div">
       <el-tree
         ref="tree"
-        node-key="statId"
+        node-key="key"
         :check-on-click-node="true"
         :check-strictly="true"
         :data="s_estatMetaCity"
         :filter-node-method="filterNode"
         highlight-current
         :indent="10"
+        :default-expanded-keys="expandedKeys"
+        :current-node-key="s_statId_key"
         @node-expand="nodeClick"
         @check="nodeClick"
       />
@@ -29,6 +31,7 @@ export default {
   name: 'TreeCity',
   data() {
     return {
+      expandedKeys: [],
       filterText: ''
     }
   },
@@ -46,6 +49,10 @@ export default {
     },
     s_estatMetaCity() {
       return this.$store.state.estatMetaCity.metaCityScatterCity
+    },
+    s_statId_key() {
+      const statId = this.$store.state.common.statId[this.s_statType]
+      return statId.dai + '/' + statId.id + '/' + statId.cat01
     }
   },
   watch: {
@@ -54,12 +61,18 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(function() {})
+    if (this.s_statType === 'scatterCity') {
+      const statId = this.$store.state.common.statId[this.s_statType]
+      const dai = statId.dai
+      const id = statId.dai + '/' + statId.id
+      // なぜか直接ストアの数値を使うとエラーになるが一度dataに入れるとエラーを回避できた。
+      this.expandedKeys = [dai, id]
+    }
   },
   methods: {
     nodeClick(e) {
       if (!e.children) {
-        const payload = { statType: this.s_statType, id: e.statId }
+        const payload = { statType: this.s_statType, id: e.key }
         this.$store.commit('common/changeStatId', payload)
       }
     },

@@ -51,45 +51,43 @@ export default {
     }
   },
   computed: {},
-  mounted() {
+  beforeMount() {
     const url = new URL(window.location.href)
     const params = url.searchParams
     let statType = params.get('type')
+    const dai = params.get('dai')
     const id = params.get('id')
     const cat01 = params.get('cat01')
     if (!statType) statType = 'pref'
     this.defaultActive = statType
     this.$store.commit('common/changeStatType', statType)
     if (id) {
-      const payload = { statType, id: id + '/' + cat01 }
+      const payload = { statType, id: dai + '/' + id + '/' + cat01 }
       this.$store.commit('common/changeStatId', payload)
     }
   },
   methods: {
     headerMenuSelect(key) {
+      console.log(key)
       switch (key) {
         case 'index':
         case 'index-page1':
         case 'index-page2':
           this.$nuxt.$router.push({ name: key })
-          // this.$store.commit('common/changeStatType', 'noStat')
           break
         default:
           this.$nuxt.$router.push({ name: 'index' })
           this.$store.commit('common/changeStatType', key)
+          // 時間をおいてURLを設定
           setTimeout(() => {
             const url = new URL(window.location.href)
             const params = url.searchParams
             params.set('type', key)
             if (this.$store.state.common.statId[key].id) {
+              params.set('dai', this.$store.state.common.statId[key].dai)
               params.set('id', this.$store.state.common.statId[key].id)
               params.set('cat01', this.$store.state.common.statId[key].cat01)
             }
-            // switch (key) {
-            //   case 'pref':
-            //     const aaa = this.$store.state.common.statId.pref.id
-            //
-            // }
             window.history.replaceState({}, '', url.href)
           }, 0)
       }
