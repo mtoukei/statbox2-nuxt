@@ -12,12 +12,11 @@
          base
        },
 ```
-- 元のソースを表示  
-
-    
+- 元のソースを表示
+```
       if (ctx.isDev && ctx.isClient) {
-        config.devtool = 'eval-source-map'
+            config.devtool = 'eval-source-map'
       }
-    
+```
 ## package.json
 
