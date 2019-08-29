@@ -8,6 +8,14 @@ module.exports = {
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
     link: [{ rel: 'icon', type: 'image/x-icon', href: base + 'favicon.ico' }]
   },
+  // --------------------------------------------------------------------------------------------
+  // generate: {
+  //   routes: ['/vi/', '/vi/pref', '/vi/scatterPref', '/vi/city', '/vi/scatterCity']
+  // },
+  // --------------------------------------------------------------------------------------------
+  router: {
+    base
+  },
   // Customize the progress-bar color-----------------------------------------------------
   loading: { color: '#fff' },
   // Global CSS
@@ -39,13 +47,5 @@ module.exports = {
         config.devtool = 'eval-source-map'
       }
     }
-  },
-  // --------------------------------------------------------------------------------------------
-  // generate: {
-  //   routes: ['/vi/', '/vi/pref', '/vi/scatterPref', '/vi/city', '/vi/scatterCity']
-  // },
-  // --------------------------------------------------------------------------------------------
-  router: {
-    base
   }
 }
