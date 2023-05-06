@@ -20,7 +20,7 @@
     "d3": "^5.9.7",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.16.3",
     "vue-resize-directive": "^1.2.0"
   },
   "devDependencies": {
